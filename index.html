@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LinkStore</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header>
+        <h1>LinkStore</h1>
+        <p>Save your favorite links with titles and keep them synced with Firebase.</p>
+      </header>
+
+      <section class="card">
+        <h2>Add a new link</h2>
+        <form id="link-form" novalidate>
+          <label for="title">Title</label>
+          <input
+            id="title"
+            name="title"
+            type="text"
+            placeholder="Example: Firebase Docs"
+            maxlength="120"
+            required
+          />
+
+          <label for="url">URL</label>
+          <input
+            id="url"
+            name="url"
+            type="url"
+            placeholder="https://firebase.google.com/docs"
+            required
+          />
+
+          <button type="submit" id="save-button">Save Link</button>
+          <p id="status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="list-header">
+          <h2>Saved links</h2>
+          <button id="clear-form" type="button">Clear form</button>
+        </div>
+        <ul id="links-list" class="links-list" aria-label="Saved links"></ul>
+      </section>
+    </main>
+
+    <script type="module" src="firebase-config.js"></script>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
